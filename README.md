@@ -1,10 +1,10 @@
 # TenisApp
 
 ![Home page](imagenesApp/Captura_1.png)
-![Visualización de reservas diarias](imagenesApp/Captura_1.png)
-![Página de alumnos](imagenesApp/Captura_1.png)
-![Página de profesores](imagenesApp/Captura_1.png)
-![Página de administracion y estadísticas](imagenesApp/Captura_1.png)
+![Visualización de reservas diarias](imagenesApp/Captura_2.png)
+![Página de alumnos](imagenesApp/Captura_3.png)
+![Página de profesores](imagenesApp/Captura_4.png)
+![Página de administracion y estadísticas](imagenesApp/Captura_5.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
 
