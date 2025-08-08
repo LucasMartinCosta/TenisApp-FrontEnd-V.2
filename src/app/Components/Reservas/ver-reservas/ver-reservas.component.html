@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Lista de reservas</h2>
+  
+    @if (mensaje) {
+        <p>{{mensaje}}</p>
+    }
+  
+    @if (reservas.length>0) {
+        <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Cancha</th>
+                <th>Fecha</th>
+                <th>Hora inicio</th>
+                <th>Hora cierre</th>
+                <th>tipo</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (reserva of reservas; track $index) {
+                  <tr>
+                      <td>{{ reserva.id }}</td>
+                      <td>{{ reserva.cancha.nombre }}</td>
+                      <td>{{ reserva.fecha }}</td>
+                      <td>{{ reserva.inicio }}</td>
+                      <td>{{ reserva.finalizacion }}</td>
+                      <td>{{ reserva.tipo }}</td>
+                      <td>
+                        <button (click)="eliminarReserva(reserva.id)">Eliminar</button>
+                      </td>
+                  </tr>
+              }
+            </tbody>
+          </table>
+    }
+    
+  @if (reservas.length===0) {
+    <p>No hay reservas cargadas</p>
+  }
+  </div>
+  
+

@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <span class="logo" (click)="goToHome()">Home</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/alumnos" routerLinkActive="active">Alumnos</button>
+    <button mat-button routerLink="/profesores" routerLinkActive="active">Profesores</button>
+    <button mat-button routerLink="/calendar" routerLinkActive="active">Calendario</button>
+    <button mat-button routerLink="/administracion" routerLinkActive="active">Administracion</button>
+    
+    
+ 
+    <button mat-icon-button (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button> 
+
+  </mat-toolbar>
+
+  <!-- 
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over" position="end">
+      <button mat-button routerLink="/alumnos" routerLinkActive="active">Alumnos</button>
+    <button mat-button routerLink="/profesores" routerLinkActive="active">Profesores</button>
+    <button mat-button routerLink="/administracion" routerLinkActive="active">Administracion</button>
+      <button mat-button routerLink="/calendar">Calendario</button>
+    </mat-sidenav>
+  </mat-sidenav-container>
+  -->
+  
+  
+  

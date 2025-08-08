@@ -1,0 +1,30 @@
+canvas {
+    width: 400px; /* Ancho deseado */
+    height: 400px; /* Alto deseado */
+    max-width: 100%; /* Opcional: Asegura que el tamaño sea responsivo */
+    display: block; /* Elimina el espaciado extra en canvas */
+    margin: 0 auto; /* Centra el gráfico */
+  }
+
+  .contenedor-principal {
+    display: flex; /* Flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Espacio entre el gráfico y los cálculos */
+    align-items: flex-start; /* Alinea los elementos al inicio superior */
+    padding: 20px; /* Espaciado interno para separar el contenido de los bordes */
+  }
+  
+  .grafico-torta {
+    flex: 1; /* Ocupa el espacio necesario */
+    max-width: 50%; /* Limita el ancho máximo al 50% de la pantalla */
+  }
+  
+  .calculos {
+    flex: 1; /* Ocupa el espacio necesario */
+    max-width: 50%; /* Limita el ancho máximo al 50% de la pantalla */
+    padding-left: 20px; /* Separación entre el gráfico y los cálculos */
+  }
+  
+  mat-form-field {
+    width: 50%; /* Asegura que los campos de entrada ocupen todo el ancho disponible */
+  }
+  

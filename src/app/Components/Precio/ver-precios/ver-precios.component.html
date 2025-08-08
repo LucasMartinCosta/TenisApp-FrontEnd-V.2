@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Lista de Precios</h2>
+  
+    @if (mensaje) {
+        <p>{{mensaje}}</p>
+    }
+  
+    @if (precios.length>0) {
+        <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (precio of precios; track $index) {
+                  <tr>
+                      <td>{{ precio.id }}</td>
+                      <td>{{ precio.nombre }}</td>
+                      <td>{{ precio.precio}}</td>
+                      <td>
+                        <button (click)="eliminarPrecio(precio.id)">Eliminar</button>
+                      </td>
+                  </tr>
+              }
+            </tbody>
+          </table>
+    }
+    
+  @if (precios.length===0) {
+    <p>No hay precios cargados</p>
+  }
+  </div>
+  

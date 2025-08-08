@@ -1,0 +1,35 @@
+
+<div class="container">
+    <h2>Lista de canchas</h2>
+  
+    @if (mensaje) {
+        <p>{{mensaje}}</p>
+    }
+  
+    @if (canchas.length>0) {
+        <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (cancha of canchas; track $index) {
+                  <tr>
+                      <td>{{ cancha.id }}</td>
+                      <td>{{ cancha.nombre }}</td>
+                      <td>
+                        <button (click)="eliminarCancha(cancha.id)">Eliminar</button>
+                      </td>
+                  </tr>
+              }
+            </tbody>
+          </table>
+    }
+    
+  @if (canchas.length===0) {
+    <p>No hay cachas cargadas</p>
+  }
+  </div>

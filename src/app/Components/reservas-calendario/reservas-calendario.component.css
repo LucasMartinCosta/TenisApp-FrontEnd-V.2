@@ -1,0 +1,39 @@
+.fc-event.cancha-cancha-1 {
+    width: 33.33%;
+    left: 0%;
+  }
+  .fc-event.cancha-cancha-2 {
+    width: 33.33%;
+    left: 33.33%;
+  }
+  .fc-event.cancha-cancha-3 {
+    width: 33.33%;
+    left: 66.66%;
+  }
+
+  .fc-event {
+    position: absolute !important;
+    width: 50% !important; /* 🔹 Ocupar solo la mitad del día */
+  }
+  
+  .fc-event.cancha-cancha-1 {
+    left: 0% !important; /* 🔹 Alinear cancha 1 a la izquierda */
+  }
+  
+  .fc-event.cancha-cancha-2 {
+    left: 50% !important; /* 🔹 Alinear cancha 2 a la derecha */
+  }
+
+  .time-grid-day .fc-event-title {
+    font-size: 14px;
+    white-space: normal;
+  }
+  
+  .fc-event-title {
+    font-size: 12px;
+    white-space: nowrap; /* Esto es para vistas semanal y mensual */
+  }
+  
+  
+  
+  

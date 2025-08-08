@@ -1,0 +1,18 @@
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+  
+  .mat-form-field {
+    width: 200px;
+  }
+  
+  .sin-resultados {
+    margin-top: 1rem;
+    font-style: italic;
+    color: gray;
+  }
+  

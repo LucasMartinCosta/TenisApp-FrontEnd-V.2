@@ -1,0 +1,25 @@
+.container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  input, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+  }
+  
+  button {
+    background-color: #eccb5c;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }
+  

@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Editar Alumno</h2>
+<mat-dialog-content>
+  <form [formGroup]="alumnoForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre">
+      @if (alumnoForm.get('nombre')?.invalid) {
+        <mat-error>El nombre es requerido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="celular" type="tel">
+      @if (alumnoForm.get('celular')?.invalid) {
+        <mat-error>Debe tener 10 dígitos</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Veces por semana</mat-label>
+      <mat-select formControlName="vecesXsemana" required>
+        @for (opcion of opcionesVecesSemana; track $index) {
+            <mat-option [value]="opcion"> 
+                {{opcion}}
+            </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" required>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="mesActualPago">Mes Pago</mat-checkbox>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="guardarCambios()">Guardar</button>
+</mat-dialog-actions>
+

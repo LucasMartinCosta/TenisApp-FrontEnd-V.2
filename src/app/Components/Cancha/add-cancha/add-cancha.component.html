@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Agregar Nueva Cancha</h2>
+  
+    <form [formGroup]="canchaForm" (ngSubmit)="guardarCancha()">
+      <div>
+        <label for="nombre">Nombre cancha:</label>
+        <input id="nombre" formControlName="nombre" type="text" required />
+        @if (canchaForm.get("nombre")?.invalid && canchaForm.get('nombre')?.touched) {
+            <div >
+                El nombre es obligatorio
+            </div>
+        }
+      </div>
+  
+      <button type="submit" [disabled]="canchaForm.invalid">Guardar</button>
+    </form>
+  
+    @if (mensaje) {
+        <p>{{mensaje}}</p>
+    }
+  </div>
+

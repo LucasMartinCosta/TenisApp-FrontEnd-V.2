@@ -1,0 +1,21 @@
+
+.contenedor {
+  display: flex;
+  width: 100%;
+  height: auto; /* O la altura que prefieras */
+  padding: 20px;
+  box-sizing: border-box;
+  }
+  
+  .ver-profesores {
+    flex: 0 0 60%; /* Fija el ancho al 60% */
+    background-color: #ffffff; /* Color de fondo opcional para visualizar */
+    padding: 15px; /* Agrega espacio interno */
+  }
+  
+  .add-profesores {
+    flex: 1; /* Toma el espacio restante (40%) */
+    background-color: #ffffff; /* Color de fondo opcional para visualizar */
+    padding: 15px; /* Agrega espacio interno */
+  }
+  

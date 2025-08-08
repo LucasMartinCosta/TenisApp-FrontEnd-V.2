@@ -1,0 +1,46 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Asegurar que los labels estén arriba */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-form-field.mat-form-field-appearance-outline {
+    --mat-form-field-container-height: 30px; /* Aumenta la altura del campo */
+  }
+  
+  mat-form-field .mat-form-field-label {
+    top: -10px; /* Mueve el label más arriba */
+    font-size: 16px; /* Ajusta el tamaño del texto */
+  }
+  
+  /* Ajustar inputs y selects */
+  mat-form-field input,
+  mat-form-field select {
+    font-size: 18px;
+    padding: 15px;
+  }
+  
+  /* Mejorar el menú desplegable */
+  .mat-select-panel {
+    transform: translateY(0) !important; /* Evita que se superponga demasiado abajo */
+  }
+  
+  .mat-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  

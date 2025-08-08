@@ -1,0 +1,36 @@
+.evento-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .evento-container button {
+    margin-top: 4px;
+  }
+
+  .evento button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+    color: #444;
+    transition: color 0.2s;
+  }
+  
+  .evento button:hover {
+    color: #000;
+  }
+
+  h2 {
+    background-color: #f0f0f0; /* Gris claro */
+    color: #161616;               /* Texto oscuro para contraste */
+    font-size: 2rem;           /* Tamaño de letra más chico */
+    padding: 8px 16px;         /* Espaciado interior */
+    /*border-radius: 6px;         Bordes redondeados */
+    margin-bottom: 10px;       /* Espacio debajo del título */
+  }

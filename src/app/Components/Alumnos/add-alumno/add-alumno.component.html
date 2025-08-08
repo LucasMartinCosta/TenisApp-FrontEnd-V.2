@@ -1,0 +1,50 @@
+<form [formGroup]="alumnoForm" (ngSubmit)="agregarAlumno()">
+    <h2>Agregar Alumno</h2>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" required>
+      @if (alumnoForm.get("nombre")?.invalid&&alumnoForm.get("nombre")?.touched) {
+        <mat-error> 
+            El nombre debe tener al menos 3 caracteres.
+        </mat-error>
+      }
+
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="celular" type="tel" required>
+      
+      @if (alumnoForm.get('celular')?.invalid && alumnoForm.get('celular')?.touched) {
+         <mat-error>
+            El celular debe tener 10 dígitos.
+          </mat-error>
+      }
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Veces por semana</mat-label>
+      <mat-select formControlName="vecesXsemana" required>
+        @for (opcion of opcionesVecesSemana; track $index) {
+            <mat-option [value]="opcion"> 
+                {{opcion}}
+            </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" required>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="mesActualPago">Mes Pago</mat-checkbox>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="alumnoForm.invalid">
+      Guardar Alumno
+    </button>
+  </form>
+  

@@ -1,0 +1,35 @@
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #fede75;
+    color: white;
+  }
+  
+  button {
+    background-color: rgb(226, 112, 112);
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: darkred;
+  }
+  

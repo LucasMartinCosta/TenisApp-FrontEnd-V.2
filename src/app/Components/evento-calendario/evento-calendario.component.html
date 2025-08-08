@@ -1,0 +1,21 @@
+<div class="evento-container">
+    <strong>{{ evento.tipo }} - {{ evento.title }}</strong>
+
+    <strong>Hora:</strong> {{ evento.start }} - {{ evento.end }}
+
+    @if (evento.profesor) {
+        <p> Profe: {{evento.profesor.nombre}} </p>
+    }
+    @if (evento.alumnos?.length) {
+        <p> Alumnos: {{ getNombresAlumnos(evento)}}</p>
+    }
+
+    <button mat-icon-button color="warn" (click)="eliminarEvento()">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+    <button mat-icon-button color="primary" (click)="editarEvento()">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+</div>

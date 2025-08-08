@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Agregar Nuevo Precio</h2>
+  
+    <form [formGroup]="precioForm" (ngSubmit)="guardarPrecio()">
+      <div>
+        <label for="nombre">Nombre del Precio:</label>
+        <input id="nombre" formControlName="nombre" type="text" required />
+        @if (precioForm.get("nombre")?.invalid && precioForm.get('nombre')?.touched) {
+            <div >
+                El nombre es obligatorio
+            </div>
+        }
+        
+      </div>
+  
+      <div>
+        <label for="precio">Valor del Precio:</label>
+        <input id="precio" formControlName="precio" type="number" required />
+        @if (precioForm.get('precio')?.invalid && precioForm.get('precio')?.touched) {
+            <div >
+                El precio debe ser mayor a 0
+              </div>
+        }
+        
+      </div>
+  
+      <button type="submit" [disabled]="precioForm.invalid">Guardar</button>
+    </form>
+  
+    @if (mensaje) {
+        <p>{{mensaje}}</p>
+    }
+  </div>

@@ -1,0 +1,6 @@
+.reserva-mes-container {
+    max-width: 600px; /* Limitar el ancho */
+    height: auto; /* Ajustar la altura dinámica según el contenido */
+    margin: 20px auto; /* Centrado horizontal */
+    padding: 10px; /* Agregar espacio interior */
+}

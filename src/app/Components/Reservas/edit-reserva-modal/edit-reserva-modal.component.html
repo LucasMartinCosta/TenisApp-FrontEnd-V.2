@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>Editar Reserva</h1>
+    <div mat-dialog-content>
+      <form [formGroup]="reservaForm">
+        <!-- Campo para la cancha -->
+        <mat-form-field appearance="fill">
+          <mat-label>Cancha</mat-label>
+          <mat-select formControlName="cancha"  [compareWith]="compareCancha">
+            @for (cancha of canchas; track $index) {
+                <mat-option [value]="cancha">
+                    {{ cancha.nombre }}
+                  </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Campos dinámicos según el tipo de reserva -->
+         @if (tipo === 'ALQUILER') {
+            <ng-container>
+                <mat-form-field appearance="fill">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput formControlName="nombre">
+                </mat-form-field>
+              </ng-container>
+         }
+        
+
+         @if (tipo === 'CLASE') {
+            <ng-container>
+                <mat-form-field appearance="fill">
+                  <mat-label>Profesor</mat-label>
+                  <mat-select formControlName="profesor" [compareWith]="compareProfesor">
+                    @for (profe of profesores; track $index) {
+                        <mat-option [value]="profe">
+                            {{ profe.nombre }}
+                          </mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Alumnos</mat-label>
+                  <mat-select formArrayName="alumnos">
+                    @for (alumno of alumnos; track $index) {
+                      <mat-option (click)="seleccionarAlumno(alumno)" [value]="alumno.id">
+                        {{ alumno.nombre }}
+                      </mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+        
+                <mat-chip-set>
+                  @for (alumno of alumnosSeleccionados; track $index) {
+                      <mat-chip [removable]="true" (removed)="quitarAlumno(alumno)">
+                          {{ alumno.nombre }}
+                          <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
+                  }
+                </mat-chip-set>
+              </ng-container>
+         }
+      </form>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Cancelar</button>
+      <button mat-button color="primary" (click)="onSave()" [disabled]="reservaForm.invalid">
+        Guardar
+      </button>
+    </div>

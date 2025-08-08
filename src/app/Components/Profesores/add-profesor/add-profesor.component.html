@@ -1,0 +1,39 @@
+<form [formGroup]="profesorForm" (ngSubmit)="agregarProfe()">
+    <h2>Agregar Nuevo Profesor</h2>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" required>
+      @if (profesorForm.get("nombre")?.invalid&&profesorForm.get("nombre")?.touched) {
+        <mat-error> 
+            El nombre debe tener al menos 3 caracteres.
+        </mat-error>
+      }
+
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="celular" type="tel" required>
+      
+      @if (profesorForm.get('celular')?.invalid && profesorForm.get('celular')?.touched) {
+         <mat-error>
+            El celular debe tener 10 dígitos.
+          </mat-error>
+      }
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" required>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="profesorForm.invalid">
+      Guardar 
+    </button>
+  </form>
+  
+

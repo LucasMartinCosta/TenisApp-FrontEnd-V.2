@@ -1,0 +1,39 @@
+
+  .cumples-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 20px;
+  background-color: #e2fae0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.birthday-card {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.no-birthday-card {
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffcccc;
+  color: #e60000;
+  border-radius: 10px;
+  max-width: 300px;
+}
+
+
+mat-card-subtitle {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

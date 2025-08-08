@@ -1,0 +1,85 @@
+<mat-card class="container">
+    <h2 class="title">Lista de Profesores</h2>
+  
+    <!-- Mensaje de error si ocurre un problema -->
+     @if (mensaje) {
+        <mat-card class="error-message">
+            <p>{{ mensaje }}</p>
+          </mat-card>
+     }
+    
+  
+    <!-- Spinner de carga mientras se obtienen los alumnos -->
+     @if (loading) {
+        <div class="spinner-container">
+            <mat-spinner></mat-spinner>
+        </div>
+     }
+    
+  
+    <!-- Tabla de alumnos -->
+     @if (profesores.length > 0) {
+
+        <div>
+            <table mat-table [dataSource]="profesores" class="mat-elevation-z8">
+        
+              <!-- ID -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let profesores"> {{ profesores.id }} </td>
+              </ng-container>
+        
+              <!-- Nombre -->
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                <td mat-cell *matCellDef="let profesores"> {{ profesores.nombre }} </td>
+              </ng-container>
+        
+              <!-- Celular -->
+              <ng-container matColumnDef="celular">
+                <th mat-header-cell *matHeaderCellDef> Celular </th>
+                <td mat-cell *matCellDef="let profesores"> {{ profesores.celular }} </td>
+              </ng-container>
+    
+        
+              <!-- Fecha de Nacimiento -->
+              <ng-container matColumnDef="fechaNacimiento">
+                <th mat-header-cell *matHeaderCellDef> Fecha de Nacimiento </th>
+                <td mat-cell *matCellDef="let profesores"> {{ profesores.fechaNacimiento}} </td>
+              </ng-container>
+        
+              <!-- Acciones -->
+              <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                <td mat-cell *matCellDef="let profesores">
+                  <button mat-icon-button color="warn" (click)="eliminarProfesor(profesores.id)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+
+                  <button mat-icon-button color="primary" (click)="editarProfesor(profesores)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+
+                  <button mat-icon-button color="accent" (click)="enviarWhatsapp(profesores.celular)">
+                    <mat-icon>phone</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+        
+              <!-- Encabezado y filas -->
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+
+     } @else {
+            <!-- Mensaje cuando no hay alumnos -->
+            <ng-template #noAlumnos>
+                <mat-card class="empty-message">
+                <p>No hay profesores registrados.</p>
+                </mat-card>
+            </ng-template>
+     }
+  </mat-card>
+  
+

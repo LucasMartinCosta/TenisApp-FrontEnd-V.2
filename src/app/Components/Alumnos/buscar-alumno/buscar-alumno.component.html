@@ -1,0 +1,72 @@
+<div class="filtros">
+    <mat-form-field>
+      <mat-label>Buscar por nombre</mat-label>
+      <input matInput [formControl]="nombreControl" placeholder="Ej: Juan">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Veces por semana</mat-label>
+      <mat-select [formControl]="vecesControl">
+        <mat-option value="">Todas</mat-option>
+        <mat-option value="uno">Una</mat-option>
+        <mat-option value="dos">Dos</mat-option>
+        <mat-option value="tres">Tres</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-checkbox [formControl]="soloDeudores">Solo deudores</mat-checkbox>
+  
+    <button mat-raised-button color="primary" (click)="aplicarFiltros()">Aplicar filtros</button>
+  </div>
+  
+  @if (loading) {
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  }
+  
+  @if (!loading && alumnos.length > 0) {
+
+    <mat-table [dataSource]="alumnos" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+          <mat-cell *matCellDef="let alumno">{{ alumno.id }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+          <mat-cell *matCellDef="let alumno">{{ alumno.nombre }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="fechaNacimiento">
+          <mat-header-cell *matHeaderCellDef>Nacimiento</mat-header-cell>
+          <mat-cell *matCellDef="let alumno">{{ alumno.fechaNacimiento}}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="celular">
+          <mat-header-cell *matHeaderCellDef>Celular</mat-header-cell>
+          <mat-cell *matCellDef="let alumno">{{ alumno.celular }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="mesActualPago">
+          <mat-header-cell *matHeaderCellDef>Pagó</mat-header-cell>
+          <mat-cell *matCellDef="let alumno">{{ alumno.mesActualPago ? 'Sí' : 'No' }}</mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="vecesXsemana">
+          <mat-header-cell *matHeaderCellDef>Veces/Semana</mat-header-cell>
+          <mat-cell *matCellDef="let alumno">{{ alumno.vecesXsemana }}</mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+  }
+  
+
+  @if (!loading && sinResultados) {
+    <div class="sin-resultados">
+        <p>No se encontraron alumnos con los filtros aplicados.</p>
+      </div>
+  }
+  
+  
+  

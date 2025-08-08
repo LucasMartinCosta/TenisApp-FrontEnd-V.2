@@ -1,0 +1,62 @@
+<div class="contenedor-principal">
+  <!-- Gráfico de torta -->
+  <div class="grafico-torta">
+    <canvas
+    baseChart
+    [data]="pieChartData"
+    [type]="pieChartType"
+    [options]="pieChartOptions"
+    >
+    </canvas>
+  </div>
+    
+<!-- Sección de cálculos -->
+ 
+    <div class="calculos">
+      <!-- Para alumnos que van 1 vez por semana -->
+      <mat-form-field appearance="outline" style="margin-right: 15px;">
+        <mat-label>Valor de cuota por 1 vez/semana</mat-label>
+        <input matInput type="number" [(ngModel)]="valorUnaVez" placeholder="Ej: 10000" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="calcularGanancia('una')">
+        Calcular
+      </button>
+      @if (resultadoUnaVez !== null) {
+        <div>
+          <p><strong>Ganancias (1 vez/semana):</strong> {{ resultadoUnaVez}}</p>
+        </div>
+      }
+      
+  
+      <!-- Para alumnos que van 2 veces por semana -->
+      <mat-form-field appearance="outline" style="margin-right: 15px; margin-top: 20px;">
+        <mat-label>Valor de cuota por 2 veces/semana</mat-label>
+        <input matInput type="number" [(ngModel)]="valorDosVeces" placeholder="Ej: 15000" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="calcularGanancia('dos')">
+        Calcular
+      </button>
+      @if (resultadoDosVeces !== null) {
+        <div>
+          <p><strong>Ganancias (2 veces/semana):</strong> {{ resultadoDosVeces}}</p>
+        </div>
+      }
+      
+  
+      <!-- Para alumnos que van 3 veces por semana -->
+      <mat-form-field appearance="outline" style="margin-right: 15px; margin-top: 20px;">
+        <mat-label>Valor de cuota por 3 veces/semana</mat-label>
+        <input matInput type="number" [(ngModel)]="valorTresVeces" placeholder="Ej: 20000" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="calcularGanancia('tres')">
+        Calcular
+      </button>
+      @if (resultadoTresVeces !== null) {
+        <div>
+          <p><strong>Ganancias (3 veces/semana):</strong> {{ resultadoTresVeces}}</p>
+        </div>
+      }
+      
+    </div>
+</div>
+  

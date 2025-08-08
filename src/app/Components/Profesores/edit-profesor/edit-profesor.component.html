@@ -1,0 +1,36 @@
+<h2 mat-dialog-title>Editar Alumno</h2>
+<mat-dialog-content>
+  <form [formGroup]="profesorForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre">
+      @if (profesorForm.get('nombre')?.invalid) {
+        <mat-error>El nombre es requerido</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Celular</mat-label>
+      <input matInput formControlName="celular" type="tel">
+      @if (profesorForm.get('celular')?.invalid) {
+        <mat-error>Debe tener 10 dígitos</mat-error>
+      }
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento" required>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="guardarCambios()">Guardar</button>
+</mat-dialog-actions>
+
+
